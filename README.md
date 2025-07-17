@@ -19,23 +19,26 @@ hazard-workflow/
 └── .github/  
 └── workflows/  
 └── test.yml # GitHub Actions CI pipeline  
-  
-## Running with Docker
+
+## Quick start (local)
+
+```bash
+python -m venv .venv 
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+pytest tests/test_api.py   ###testing the api
+
+Then visit: http://localhost:8000/docs
+
+### NOTES: Python version 3.12.6
+
+## Running with Docker 
 1. Build the Docker image
 docker build -t hazard-api 
 
 2. Run the container
 docker run -p 8000:80 hazard-api
-
-Then visit: http://localhost:8000/docs
-
-## How to Test
-1. Run unit tests with pytest
-
-pip install -r requirements.txt
-pytest
-
-You’ll find test cases in tests/test_api.py.
 
 ## UI:
 ![Screenshot of a FASTAPI.](SwaggerUI.png)
@@ -65,11 +68,4 @@ You’ll find test cases in tests/test_api.py.
 - Unit test execution with pytest
 - Docker build & push to DockerHub (when secrets are configured)
 
-## Quick start (local)
-
-```bash
-python -m venv .venv 
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-pytest tests/test_api.py
+### Thank you :) 

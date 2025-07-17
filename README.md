@@ -27,7 +27,7 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-pytest tests/test_api.py   ###testing the api
+pytest tests/test_api.py   ###testing the api ```
 
 Then visit: http://localhost:8000/docs
 

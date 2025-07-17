@@ -20,16 +20,16 @@ hazard-workflow/
 └── workflows/
 └── test.yml # GitHub Actions CI pipeline
 
-🐳 Running with Docker
+## Running with Docker
 1. Build the Docker image
+docker build -t hazard-api 
 
-docker build -t hazard-api .
 2. Run the container
-
 docker run -p 8000:80 hazard-api
+
 Then visit: http://localhost:8000/docs
 
-✅ How to Test
+## How to Test
 1. Run unit tests with pytest
 
 pip install -r requirements.txt
@@ -37,37 +37,30 @@ pytest
 
 You’ll find test cases in tests/test_api.py.
 
-🚀 Extending the App
-Add more roles or task types in schemas.py and update _workflow_create_tasks.
+## Extending the App
+- Add more roles or task types in schemas.py and update _workflow_create_tasks.
+- Add endpoints to update task status or assign users.
+- Replace SQLite with PostgreSQL for multi-user production.
 
-Add endpoints to update task status or assign users.
+## Scaling in Production
+- Here’s how you could scale this app beyond a prototype:
 
-Replace SQLite with PostgreSQL for multi-user production.
+## Replace BackgroundTasks
+- Use Celery or RQ as a distributed task queue for workflows.
 
-🧠 Scaling in Production
-Here’s how you could scale this app beyond a prototype:
+## Database
+- Switch from SQLite to PostgreSQL or MySQL.
+- Use Alembic for database migrations.
 
-📌 Replace BackgroundTasks
-Use Celery or RQ as a distributed task queue for workflows.
-
-📌 Database
-Switch from SQLite to PostgreSQL or MySQL.
-
-Use Alembic for database migrations.
-
-📌 Deployment
-Use Docker in combination with Kubernetes for advanced orchestration
+## Deployment
+- Use Docker in combination with Kubernetes for advanced orchestration
 
 
-🛠️ CI/CD with GitHub Actions
-Included .github/workflows/test.yml handles:
-
-Build & dependency setup
-
-Unit test execution with pytest
-
-Docker build & push to DockerHub (when secrets are configured)
-
+## CI/CD with GitHub Actions
+- Included .github/workflows/test.yml handles:
+- Build & dependency setup
+- Unit test execution with pytest
+- Docker build & push to DockerHub (when secrets are configured)
 
 ## Quick start (local)
 

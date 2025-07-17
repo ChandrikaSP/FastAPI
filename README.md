@@ -17,8 +17,8 @@ hazard-workflow/
 ├── Dockerfile # Docker image definition  
 ├── README.md # Project documentation  
 └── .github/  
-  └── workflows/  
-    └── test.yml # GitHub Actions CI pipeline  
+    └── workflows/  
+        └── test.yml # GitHub Actions CI pipeline  
 
 ## Git Command
 -The git command to execute the code is below under >>> Quick start (local) >>>

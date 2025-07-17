@@ -1,0 +1,151 @@
+✅ Here's how to activate a virtual environment properly in PowerShell:
+1. Create the virtual environment:
+
+python -m venv .venv
+
+2. Activate it (PowerShell):
+
+.venv\Scripts\Activate.ps1
+
+
+pip install pytest
+
+
+-----------------TO DO-----------------------
+✅ 1. Add This GitHub Actions Workflow
+Create a new file:
+
+bash
+Copy
+Edit
+.github/workflows/test.yml
+Paste this content inside:
+
+yaml
+Copy
+Edit
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pip install pytest
+        pytest tests/
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to DockerHub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build and push Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/hazard-api:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/hazard-api:latest
+✅ 2. Add requirements.txt
+Ensure it includes:
+
+txt
+Copy
+Edit
+fastapi
+uvicorn
+sqlalchemy
+databases
+pydantic
+pytest
+httpx
+✅ 3. Add Dockerfile (already provided)
+You already have this:
+
+Dockerfile
+Copy
+Edit
+# Dockerfile
+FROM python:3.11
+
+WORKDIR /app
+
+COPY ./app /app/app
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+✅ 4. Secrets for DockerHub
+Go to your GitHub repo.
+
+Navigate to Settings > Secrets and variables > Actions.
+
+Click New repository secret, and add:
+
+DOCKER_USERNAME: your DockerHub username
+
+DOCKER_PASSWORD: your DockerHub password or access token
+
+✅ 5. Project Structure Recap
+markdown
+Copy
+Edit
+hazard-workflow/
+├─ app/
+│  ├─ main.py
+│  ├─ schemas.py
+│  ├─ database.py
+│  └─ __init__.py
+├─ tests/
+│  ├─ test_api.py
+│  └─ __init__.py
+├─ requirements.txt
+├─ Dockerfile
+├─ README.md
+└─ .github/
+   └─ workflows/
+       └─ test.yml
+✅ 6. How It Works
+Every push or pull_request to main runs the pipeline.
+
+GitHub:
+
+Installs Python and dependencies.
+
+Runs unit tests.
+
+On success, builds and pushes a Docker image to DockerHub.
+
+Would you like a deployment step to a specific platform like Render, Heroku, AWS EC2, or Fly.io? I can add that as well.

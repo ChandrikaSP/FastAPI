@@ -4,7 +4,7 @@ A lightweight FastAPI-based application to capture and manage risks with automat
 ---
 A tiny FastAPI service that tracks **risks** and spawns follow‑up **tasks** automatically in a background job.
 
-hazard-workflow/
+hazard-workflow/  
 ├── app/  
 │ ├── main.py # FastAPI entry point  
 │ ├── schemas.py # Pydantic request/response models  

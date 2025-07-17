@@ -20,7 +20,8 @@ hazard-workflow/
 └── workflows/  
 └── test.yml # GitHub Actions CI pipeline  
 
-## The git command to execute the code is below under >>> Quick start (local)
+## Git Command
+-The git command to execute the code is below under >>> Quick start (local) >>>
 
 Then visit: http://localhost:8000/docs
 

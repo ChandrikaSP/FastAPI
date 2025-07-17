@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hazard Assessment</title>
+</head>
+<body>
+  <h1>Hazard Assessment Workflow</h1>
+
+  <h2>Create a new Risk</h2>
+  <form id="riskForm">
+    Title:<br>
+    <input type="text" id="title" required><br>
+    Description:<br>
+    <input type="text" id="description" required><br>
+    Category:<br>
+    <input type="text" id="category" required><br><br>
+    <button type="submit">Create Risk</button>
+  </form>
+
+  <h2>All Risks</h2>
+  <button onclick="loadRisks()">Load Risks</button>
+  <ul id="riskList"></ul>
+
+  <script>
+    const apiBase = 'http://localhost:8000';  // change if your FastAPI runs elsewhere
+
+    async function loadRisks() {
+      const res = await fetch(apiBase + '/risks');
+      const risks = await res.json();
+      const list = document.getElementById('riskList');
+      list.innerHTML = '';
+      risks.forEach(risk => {
+        const li = document.createElement('li');
+        li.textContent = `ID: ${risk.id} | Title: ${risk.title} | Status: ${risk.status} | Tasks: ${risk.tasks.join(', ')}`;
+        list.appendChild(li);
+      });
+    }
+
+
+  </script>
+</body>
+</html>

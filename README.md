@@ -69,6 +69,15 @@ Build & Test
 - Push changes to the main branch.
 - Open a pull request targeting main.
 
+## Deployment
+- Use Docker in combination with Kubernetes for advanced orchestration
+
+## CI/CD with GitHub Actions
+- Included .github/workflows/test.yml handles:
+- Build & dependency setup
+- Unit test execution with pytest
+- Docker build & push to DockerHub (when secrets are configured)
+
 ## Extending the App
 - Add more roles or task types in schemas.py and update _workflow_create_tasks.
 - Add endpoints to update task status or assign users.
@@ -83,16 +92,6 @@ Build & Test
 ## Database
 - Switch from SQLite to PostgreSQL or MySQL.
 - Use Alembic for database migrations.
-
-## Deployment
-- Use Docker in combination with Kubernetes for advanced orchestration
-
-
-## CI/CD with GitHub Actions
-- Included .github/workflows/test.yml handles:
-- Build & dependency setup
-- Unit test execution with pytest
-- Docker build & push to DockerHub (when secrets are configured)
 
   ## Quick start (local)
 

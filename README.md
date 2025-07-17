@@ -20,14 +20,7 @@ hazard-workflow/
 └── workflows/  
 └── test.yml # GitHub Actions CI pipeline  
 
-## Quick start (local)
-
-```bash
-python -m venv .venv 
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-uvicorn app.main:app --reload
-pytest tests/test_api.py ```   ###testing the api 
+## The git command to execute the code is below under >>> Quick start (local)
 
 Then visit: http://localhost:8000/docs
 
@@ -67,5 +60,14 @@ docker run -p 8000:80 hazard-api
 - Build & dependency setup
 - Unit test execution with pytest
 - Docker build & push to DockerHub (when secrets are configured)
+
+  ## Quick start (local)
+
+```bash
+python -m venv .venv 
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+pytest tests/test_api.py ```   ###testing the api 
 
 ### Thank you :) 

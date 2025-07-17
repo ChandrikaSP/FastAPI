@@ -5,21 +5,21 @@ A lightweight FastAPI-based application to capture and manage risks with automat
 A tiny FastAPI service that tracks **risks** and spawns follow‑up **tasks** automatically in a background job.
 
 hazard-workflow/
-├── app/
-│ ├── main.py # FastAPI entry point
-│ ├── schemas.py # Pydantic request/response models
-│ ├── database.py # SQLite engine & table definitions
-│ └── init.py
-├── tests/
-│ ├── test_api.py # Unit tests using pytest
-│ └── init.py
-├── requirements.txt # Python dependencies
-├── Dockerfile # Docker image definition
-├── README.md # Project documentation
-└── .github/
-└── workflows/
-└── test.yml # GitHub Actions CI pipeline
-
+├── app/  
+│ ├── main.py # FastAPI entry point  
+│ ├── schemas.py # Pydantic request/response models  
+│ ├── database.py # SQLite engine & table definitions  
+│ └── init.py  
+├── tests/  
+│ ├── test_api.py # Unit tests using pytest  
+│ └── init.py  
+├── requirements.txt # Python dependencies  
+├── Dockerfile # Docker image definition  
+├── README.md # Project documentation  
+└── .github/  
+└── workflows/  
+└── test.yml # GitHub Actions CI pipeline  
+  
 ## Running with Docker
 1. Build the Docker image
 docker build -t hazard-api 

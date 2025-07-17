@@ -21,17 +21,21 @@ hazard-workflow/
         └── test.yml # GitHub Actions CI pipeline
         
 ## Requirements
-Implement a REST API (with FastAPI) with the following endpoints:
+- Implement a REST API (with FastAPI) with the following endpoints:
   - POST /risks - captures a new risk (title, description, category) and starts the workflow
   - GET /risks - lists all risks with their current status
   - GET /risks/{id} - returns the details of a specific risk and the status
 
-Workflow logic:
+- Workflow logic:
   - Create automatic tasks for "safety officer" and "team leader"
   - Initially set status to "in process"
   - Simulate processing for 10 seconds
   - Then set status to "completed"
     
+- Data storage: Use either SQLite
+- Unit tests for the endpoints
+- A Dockerfile for the local start  
+  
 ## Git Command
 -The git command to execute the code is below under >>> Quick start (local) >>>
 

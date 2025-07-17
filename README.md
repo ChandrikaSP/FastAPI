@@ -37,6 +37,38 @@ docker run -p 8000:80 hazard-api
 ## UI:
 ![Screenshot of a FASTAPI.](SwaggerUI.png)
 
+## CI/CD pipeline setup
+- This project uses GitHub Actions to automate the CI/CD pipeline for building, testing, and deploying the application Docker image.
+- 
+### Workflow Overview
+The pipeline is defined in .github/workflows/test.yml and triggers on:
+- Pushes to the main branch
+- Pull requests targeting the main branch
+
+#### Pipeline Jobs
+Build & Test
+- Runs on ubuntu-latest
+- Checks out the code
+- Sets up Python 3.11
+- Installs dependencies from requirements.txt
+- Runs unit tests using pytest
+- Docker Build & Push
+- Runs only if the build job succeeds and the branch is main
+- Checks out the code again
+- Sets up Docker Buildx for multi-platform builds
+- Logs in to Docker Hub using repository secrets (DOCKER_USERNAME and DOCKER_PASSWORD)
+- Builds the Docker image and pushes it to Docker Hub with the tag latest
+
+#### Branch Naming
+- Ensure your main development branch is named main or update the workflow file accordingly.
+
+### Testing
+- Write tests under the tests/ directory. The workflow runs tests automatically on every push and pull request.
+
+#### How to Trigger the Pipeline
+- Push changes to the main branch.
+- Open a pull request targeting main.
+
 ## Extending the App
 - Add more roles or task types in schemas.py and update _workflow_create_tasks.
 - Add endpoints to update task status or assign users.

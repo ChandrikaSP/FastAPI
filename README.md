@@ -39,7 +39,7 @@ docker run -p 8000:80 hazard-api
 
 ## CI/CD pipeline setup
 - This project uses GitHub Actions to automate the CI/CD pipeline for building, testing, and deploying the application Docker image.
-- 
+
 ### Workflow Overview
 The pipeline is defined in .github/workflows/test.yml and triggers on:
 - Pushes to the main branch

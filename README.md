@@ -37,6 +37,9 @@ pytest
 
 You’ll find test cases in tests/test_api.py.
 
+## UI:
+![Screenshot of a FASTAPI.](SwaggerUI.png)
+
 ## Extending the App
 - Add more roles or task types in schemas.py and update _workflow_create_tasks.
 - Add endpoints to update task status or assign users.

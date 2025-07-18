@@ -1,4 +1,4 @@
-# Hazard‑Workflow API
+# Hazard‑Assessment-Workflow API
 A lightweight FastAPI-based application to capture and manage risks with automated background workflows, task assignment, and database persistence using SQLite. Includes CI/CD via GitHub Actions and Docker support.
 
 ---

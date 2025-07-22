@@ -6,7 +6,6 @@ from fastapi import FastAPI, HTTPException, BackgroundTasks
 from app.database import database, engine, init_db, risks, tasks
 from app import schemas
 
-#init_db()      #commit this
 app = FastAPI(title="Risk Assessment + Tasks Workflow", version="0.4.0")
 
 # @app.on_event("startup")
